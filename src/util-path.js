@@ -193,6 +193,12 @@
     }
     // top-level id
     else {
+      if (window._REF_VER && typeof window._REF_VER === 'object') {
+        var rv = window._REF_VER;
+        if (id in rv && rv[id] > 0) {
+          id = id + '_v' + rv[id];
+        }
+      }
       ret = config.base + '/' + id
     }
 
